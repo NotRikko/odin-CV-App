@@ -1,6 +1,7 @@
 import Education from './Education'
 import General from './General'
 import Practical from './Practical'
+import './RenderedStyle.css'
 
 export default function RenderedResume({resumeData}) {
     const GeneralRender = resumeData.generalSection;
@@ -10,8 +11,10 @@ export default function RenderedResume({resumeData}) {
     return (
         <>
             <General toRender={GeneralRender} />
-            <Education toRender={EducationRender} />
-            <Practical toRender={PracticalRender}/>
+            <div id="alignLeft">
+                <Education toRender={EducationRender} />
+                <Practical toRender={PracticalRender}/>
+            </div>
         </>
     )
 }
