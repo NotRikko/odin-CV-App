@@ -1,11 +1,12 @@
-export default function General() {
+export default function General({toRender}) {
     return (
         <>
-            <div>
-                <h2>Rikko</h2>
-                <h3>Email</h3>
-                <h3>Phone Number</h3>
-            </div>
+            {Object.entries(toRender).map(([key, value]) => (
+                <div key={key}>
+                    <h2>{key} </h2>
+                    <h4>{value}</h4>
+                </div>
+            ))}
         </>
     )
 }

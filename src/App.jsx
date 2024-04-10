@@ -1,39 +1,36 @@
 import { useState, useEffect } from 'react'
 import ResumeForm from './components/ResumeInput/ResumeForm'
+import RenderedResume from './components/ResumeRender/RenderedResume'
 
 import './App.css'
 
 function App() {
   const [resumeData, setResumeData] = useState({
     generalSection: {
-      name: "",
-      phoneNum:"",
-      email:""
+      name: "Rikko",
+      phoneNum:"4252",
+      email:"ssss"
     },
     educationSection: {
-      schoolName: "",
-      major: "",
-      startDate: "",
-      endDate: ""
+      schoolName: "sa",
+      major: "aa",
+      startDate: "aa",
+      endDate: "aa"
     },
     workSection: {
-      workName: "",
-      workTitle: "",
-      workResponsibilities: "",
-      workStartdate: "",
-      workEndDate: ""
+      workName: "aa",
+      workTitle: "aa",
+      workResponsibilities: "aa",
+      workStartdate: "aa",
+      workEndDate: "aa"
     }
   });
+  const [isRendered, setIsRendered] =useState(true)
 
   const handleSubmission = (event) => {
     event.preventDefault();
-    setResumeData((...prevResumeData) => ({
-      ...prevResumeData,
-      generalSection: resumeData.generalSection,
-      educationSection: resumeData.educationSection,
-      workSection: resumeData.workSection
-    }));
-    console.log(resumeData)
+    setIsRendered(true);
+    
   }
 
   const handleChange = (event) => {
@@ -51,7 +48,14 @@ function App() {
 
   return (
     <>
-      <ResumeForm resumeData={resumeData} handleSubmit={handleSubmission} handleChange={handleChange}/>
+      {isRendered 
+        ? 
+        <RenderedResume resumeData={resumeData} />
+        : 
+        <ResumeForm 
+          resumeData={resumeData} handleSubmit={handleSubmission} handleChange={handleChange}
+        />
+      }
     </>
   )
 }
