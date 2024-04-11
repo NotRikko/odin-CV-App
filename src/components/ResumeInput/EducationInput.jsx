@@ -1,48 +1,57 @@
-import {useState} from 'react'
+export default function Educationinput({educationData, onUpdate, onDelete}) {
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        onUpdate({...educationData, [name]: value});
+    };
 
-export default function Educationinput({resumeData, onUpdate}) {
-    
+    const deleteEduSection = (index) => {
+        const edSectionToDelete = [...resumeData.educationSection];
+        edSectionToDelete.splice(index, 1);
+        setResumeData({ ...resumeData, educationSection: edSectionToDelete })
+
+    }
+
     return(
-        <>
-            <h2>Education</h2>
+        <div className="formSection">
             <label>
                 School Name
                 <input
-                type="text"
-                name="educationSection.schoolName"
-                value={resumeData.educationSection.schoolName}
-                onChange={onUpdate}
+                type="text" 
+                name="schoolName"
+                value={educationData.schoolName}
+                onChange={handleChange}
                 />
             </label>
             <label>
                 Title of Study
                 <input
                 type="text"
-                name="educationSection.major"
-                value={resumeData.educationSection.major}
-                onChange={onUpdate}
+                name="major"
+                value={educationData.major}
+                onChange={handleChange}
                 />
             </label>
             <label>
                 Start Date
                 <input
                 type="text"
-                name="educationSection.startDate"
-                value={resumeData.educationSection.startDate}
-                onChange={onUpdate}
+                name="startDate"
+                value={educationData.startDate}
+                onChange={handleChange}
                 />
             </label>
             <label>
                 Graduation Date
                 <input
                 type="text"
-                name="educationSection.endDate"
-                value={resumeData.educationSection.endDate}
-                onChange={onUpdate}
+                name="endDate"
+                value={educationData.endDate}
+                onChange={handleChange}
                 />
             </label>
-            
-        </>
+            <button type="button" onClick={onDelete}>Delete</button>
+
+        </div>
         
         
     )

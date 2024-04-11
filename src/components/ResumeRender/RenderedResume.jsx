@@ -9,12 +9,24 @@ export default function RenderedResume({resumeData}) {
     const PracticalRender = resumeData.workSection;
 
     return (
-        <>
+        <div id="renderedResume">
             <General toRender={GeneralRender} />
             <div id="alignLeft">
-                <Education toRender={EducationRender} />
-                <Practical toRender={PracticalRender}/>
+                <h1>Education</h1>
+                {EducationRender.map((education, index) => (
+                    <Education
+                        key={index}
+                        toRender = {education}
+                    />
+                ))}
+                <h1>Experience</h1>
+                {PracticalRender.map((work, index) => (
+                    <Practical
+                        key={index}
+                        toRender = {work}
+                    />
+                ))}
             </div>
-        </>
+        </div>
     )
 }

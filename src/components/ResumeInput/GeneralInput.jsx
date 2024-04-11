@@ -1,10 +1,8 @@
-import {useState, useEffect} from 'react'
 
 export default function GeneralInput({resumeData, onUpdate}) {
     
     return (
-        <>
-            <h2>General Information</h2>
+        <div className="formSection">
             <label>
                 Name
                 <input
@@ -32,6 +30,6 @@ export default function GeneralInput({resumeData, onUpdate}) {
                     onChange={onUpdate}
                 />
             </label>
-        </>
+        </div>
     )
 }

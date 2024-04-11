@@ -3,3 +3,22 @@ form {
     flex-direction: column;
 }
 
+.formSection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 60px;
+    margin-right: 60px;
+    text-align: left;
+}
+
+button {
+    align-self: center;
+    width: 6vw;
+}
+

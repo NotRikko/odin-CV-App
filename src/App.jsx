@@ -11,21 +11,21 @@ function App() {
       phoneNum:"818-523-4200",
       email:"darikko@gmail.com"
     },
-    educationSection: {
+    educationSection: [{ 
       schoolName: "University of California Irvine",
       major: "Bachelor of Science",
       startDate: "2021",
       endDate: "2024"
-    },
-    workSection: {
+    },],
+    workSection: [{
       workName: "Lost Art Studio",
       workTitle: "Live Operations Specialist",
-      workResponsibilities: ["Studied", "Ate", "Slept"],
+      workResponsibilities: "Studied Ate Slept",
       workStartDate: "2021",
       workEndDate: "2024"
-    }
+    },]
   });
-  const [isRendered, setIsRendered] =useState(true)
+  const [isRendered, setIsRendered] =useState(false)
 
   const handleSubmission = (event) => {
     event.preventDefault();
@@ -46,17 +46,17 @@ function App() {
 
   }
 
+
   return (
-    <>
-      {isRendered 
-        ? 
-        <RenderedResume resumeData={resumeData} />
-        : 
-        <ResumeForm 
-          resumeData={resumeData} handleSubmit={handleSubmission} handleChange={handleChange}
-        />
-      }
-    </>
+    <div id="mainContainer">
+      <ResumeForm 
+        resumeData={resumeData}
+        setResumeData={setResumeData}
+        handleSubmit={handleSubmission}
+        handleChange={handleChange}
+      />
+      <RenderedResume resumeData={resumeData} />
+    </div>
   )
 }
 

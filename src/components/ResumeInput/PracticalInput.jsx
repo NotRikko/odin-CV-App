@@ -1,54 +1,57 @@
-import {useState} from 'react'
+export default function PracticalInput({workData, onUpdate, onDelete}) {
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        onUpdate({...workData, [name]: value});
+    };
 
-export default function PracticalInput({resumeData, onUpdate}) {
     return (
-        <>
-            <h2>Work Experience</h2>
+        <div className="formSection">
             <label>
                 Company Name
                 <input
                     type="text"
-                    name="workSection.workName"
-                    value={resumeData.workSection.workName}
-                    onChange={onUpdate}
+                    name="workName"
+                    value={workData.workName}
+                    onChange={handleChange}
                 />
             </label>
             <label>
                 Position Title
                 <input
                     type="text"
-                    name="workSection.workTitle"
-                    value={resumeData.workSection.workTitle}
-                    onChange={onUpdate}
+                    name="workTitle"
+                    value={workData.workTitle}
+                    onChange={handleChange}
                 />
             </label>
             <label>
                 Job Responsibilities
                 <input
                     type="text"
-                    name="workSection.workResponsibilities"
-                    value={resumeData.workSection.workResponsibilities}
-                    onChange={onUpdate}
+                    name="workResponsibilities"
+                    value={workData.workResponsibilities}
+                    onChange={handleChange}
                 />
             </label>
             <label>
                 Start Date
                 <input
                     type="text"
-                    name="workSection.workStartDate"
-                    value={resumeData.workSection.workStartdate}
-                    onChange={onUpdate}
+                    name="workStartDate"
+                    value={workData.workStartDate}
+                    onChange={handleChange}
                 />
             </label>
             <label>
                 End Date
                 <input
                     type="text"
-                    name="workSection.workEndDate"
-                    value={resumeData.workSection.workEndDate}
-                    onChange={onUpdate}
+                    name="workEndDate"
+                    value={workData.workEndDate}
+                    onChange={handleChange}
                 />
             </label>
-        </>
+            <button type="button" onClick={onDelete}>Delete</button>
+        </div>
     )
 }
